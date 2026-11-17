@@ -531,4 +531,40 @@ footer {
     }
 }
 
+/* =================================
+   13. PROJECT LINKS & HOVER EFFECTS
+================================= */
 
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: auto;
+    padding-top: 22px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--accent-light);
+    transform: translateX(5px);
+}
+
+/* Subtle project card interaction */
+.project-card {
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}

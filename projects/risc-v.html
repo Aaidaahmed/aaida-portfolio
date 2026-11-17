@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RISC-V Processor | Aaida Ahmed</title>
+    <meta name="description" content="A single-cycle RV32I RISC-V processor RTL design featuring a custom MAC unit, memory-mapped GPIO and performance counters.">
+
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="risc-v.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="../index.html" class="logo">AAIDA<span>.</span></a>
+
+        <ul class="nav-links">
+            <li><a href="../index.html#about">About</a></li>
+            <li><a href="../index.html#skills">Skills</a></li>
+            <li><a href="../index.html#projects">Projects</a></li>
+        </ul>
+
+        <a href="https://github.com/Aaidaahmed/risc-v-processor"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="nav-button">GitHub ↗</a>
+    </nav>
+</header>
+
+<main class="project-page">
+
+    <!-- PROJECT HERO -->
+    <section class="project-hero">
+
+        <a href="../index.html#projects" class="back-link">
+            ← Back to projects
+        </a>
+
+        <p class="section-label">PROJECT 01 / PROCESSOR DESIGN</p>
+
+        <h1>RV32I RISC-V <span>Processor</span></h1>
+
+        <p class="project-intro">
+            A Verilog RTL implementation of a single-cycle RISC-V processor,
+            featuring a custom multiply-accumulate execution unit,
+            memory-mapped GPIO and performance counters.
+        </p>
+
+        <div class="project-tags">
+            <span>Verilog</span>
+            <span>RISC-V</span>
+            <span>RTL Design</span>
+            <span>Computer Architecture</span>
+            <span>Icarus Verilog</span>
+        </div>
+
+        <div class="project-actions">
+            <a href="https://github.com/Aaidaahmed/risc-v-processor"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="primary-button">
+                View Source Code ↗
+            </a>
+
+            <a href="#architecture" class="secondary-button">
+                Explore Architecture ↓
+            </a>
+        </div>
+
+        <div class="project-hero-image">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/images/cpu_architecture.png"
+                alt="RISC-V processor architecture diagram">
+        </div>
+
+    </section>
+
+
+    <!-- OVERVIEW -->
+    <section class="project-section">
+
+        <p class="section-label">01 / OVERVIEW</p>
+        <h2>Inside the processor.</h2>
+
+        <p>
+            This project implements a single-cycle RISC-V processor
+            datapath in Verilog. The design brings together instruction
+            fetching, decoding, execution, memory access and register
+            write-back within a single-cycle architecture.
+        </p>
+
+        <p>
+            The processor also incorporates a custom multiply-accumulate
+            (MAC) execution unit, memory-mapped GPIO and performance
+            counters to monitor processor activity.
+        </p>
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+                <span>01</span>
+                <h3>Single-cycle datapath</h3>
+                <p>Instruction fetch, decode, execution, memory access and write-back.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>02</span>
+                <h3>Custom MAC unit</h3>
+                <p>Dedicated multiply-accumulate execution logic.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>03</span>
+                <h3>Memory-mapped GPIO</h3>
+                <p>Peripheral access through defined memory addresses.</p>
+            </div>
+
+            <div class="feature-card">
+                <span>04</span>
+                <h3>Performance counters</h3>
+                <p>Tracks cycles, instructions, loads, stores, branches and MAC events.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ARCHITECTURE -->
+    <section id="architecture" class="project-section">
+
+        <p class="section-label">02 / ARCHITECTURE</p>
+        <h2>Processor architecture.</h2>
+
+        <p>
+            The processor follows a single-cycle datapath organization.
+            Its RTL is divided into modules responsible for computation,
+            control, memory and peripheral functionality.
+        </p>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/images/cpu_architecture.png"
+                alt="Complete RISC-V processor block diagram">
+            <figcaption>Processor architecture and major datapath components</figcaption>
+        </figure>
+
+        <div class="module-list">
+
+            <div>
+                <h3>Program Counter & Instruction Memory</h3>
+                <p>Maintains instruction sequencing and supplies instructions for execution.</p>
+            </div>
+
+            <div>
+                <h3>Instruction Decoder & Immediate Generator</h3>
+                <p>Interprets instruction fields and generates the required immediate values.</p>
+            </div>
+
+            <div>
+                <h3>Register File & ALU</h3>
+                <p>Provides source operands and performs arithmetic and logical operations.</p>
+            </div>
+
+            <div>
+                <h3>Branch Unit & Data Memory</h3>
+                <p>Handles branch decisions and load/store memory operations.</p>
+            </div>
+
+            <div>
+                <h3>Custom Execution & Peripheral Units</h3>
+                <p>Integrates MAC execution, GPIO access and performance monitoring.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INSTRUCTION JOURNEY -->
+    <section class="project-section">
+
+        <p class="section-label">03 / INSTRUCTION WALKTHROUGH</p>
+        <h2>Follow an instruction.</h2>
+
+        <p>
+            Here's how a load-word instruction travels through the
+            processor, from instruction fetch to register write-back.
+        </p>
+
+        <div class="instruction-label">
+            <code>LW x10, 0(x1)</code>
+            <span>Load Word</span>
+        </div>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/demo/lw_instruction_journey.gif"
+                alt="Animated load-word instruction journey through the RISC-V processor">
+            <figcaption>Animated instruction execution walkthrough</figcaption>
+        </figure>
+
+        <div class="step-grid">
+
+            <div><span>01</span><h3>Fetch</h3><p>The PC supplies the instruction address.</p></div>
+            <div><span>02</span><h3>Decode</h3><p>The decoder identifies the load operation and destination register.</p></div>
+            <div><span>03</span><h3>Read operands</h3><p>The register file supplies x1 and the immediate generator extracts the offset.</p></div>
+            <div><span>04</span><h3>Calculate</h3><p>The ALU computes the effective memory address.</p></div>
+            <div><span>05</span><h3>Load</h3><p>Data memory returns the requested word.</p></div>
+            <div><span>06</span><h3>Write-back</h3><p>The loaded value is written into x10.</p></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SIMULATION -->
+    <section class="project-section">
+
+        <p class="section-label">04 / SIMULATION</p>
+        <h2>From RTL to simulation.</h2>
+
+        <p>
+            The design was simulated using Icarus Verilog, with GTKWave
+            used to inspect signal activity and execution behavior.
+        </p>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/demo/cpu_simulation.gif"
+                alt="RISC-V processor simulation demonstration">
+            <figcaption>Processor simulation and execution demonstration</figcaption>
+        </figure>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/waveforms/cpu_execution.png"
+                alt="RISC-V CPU execution waveform">
+            <figcaption>CPU execution waveform showing datapath signal activity</figcaption>
+        </figure>
+
+    </section>
+
+
+    <!-- VERIFICATION -->
+    <section class="project-section">
+
+        <p class="section-label">05 / VERIFICATION</p>
+        <h2>Testing the design.</h2>
+
+        <p>
+            Verilog testbenches and automated functional checks were
+            used to verify processor behavior, memory operations,
+            custom MAC functionality, GPIO and performance counters.
+        </p>
+
+        <div class="verification-banner">
+            <div>
+                <strong>61</strong>
+                <span>Checks passed</span>
+            </div>
+
+            <div>
+                <strong>0</strong>
+                <span>Failures</span>
+            </div>
+
+            <div>
+                <strong>100%</strong>
+                <span>Pass rate</span>
+            </div>
+        </div>
+
+        <h3 class="subheading">Custom MAC verification</h3>
+
+        <p>
+            The custom operation computes:
+        </p>
+
+        <div class="formula-panel">
+            rd_new = rd_old + (rs1 × rs2)
+        </div>
+
+        <p>
+            A focused test verified the calculation
+            4 + (2 × 3) = 10, with the result written to x6.
+        </p>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/images/mac_result.png"
+                alt="Custom MAC verification result">
+            <figcaption>Custom MAC operation verification</figcaption>
+        </figure>
+
+        <h3 class="subheading">Performance counter verification</h3>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>Metric</th><th>Observed count</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Clock cycles</td><td>24</td></tr>
+                    <tr><td>Instructions</td><td>24</td></tr>
+                    <tr><td>Load operations</td><td>1</td></tr>
+                    <tr><td>Store operations</td><td>4</td></tr>
+                    <tr><td>Taken branches</td><td>1</td></tr>
+                    <tr><td>MAC operations</td><td>1</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <figure class="media-panel">
+            <img
+                src="https://raw.githubusercontent.com/Aaidaahmed/risc-v-processor/main/docs/images/performance_counters.png"
+                alt="Performance counter verification">
+            <figcaption>Performance counter test results</figcaption>
+        </figure>
+
+    </section>
+
+
+    <!-- TOOLS -->
+    <section class="project-section">
+
+        <p class="section-label">06 / TOOLS & TECHNOLOGIES</p>
+        <h2>Built with.</h2>
+
+        <div class="tool-list">
+            <span>Verilog</span>
+            <span>Icarus Verilog</span>
+            <span>GTKWave</span>
+            <span>Git</span>
+            <span>GitHub</span>
+            <span>VS Code</span>
+            <span>Ubuntu Linux</span>
+        </div>
+
+    </section>
+
+
+    <!-- GITHUB CTA -->
+    <section class="project-cta">
+
+        <p class="section-label">EXPLORE THE CODE</p>
+        <h2>Want to look under the hood?</h2>
+
+        <p>
+            Explore the RTL source files, testbenches, architecture
+            documentation and simulation assets on GitHub.
+        </p>
+
+        <a href="https://github.com/Aaidaahmed/risc-v-processor"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="primary-button">
+            View RISC-V Repository ↗
+        </a>
+
+        <a href="../index.html#projects" class="back-link bottom-back">
+            ← Back to all projects
+        </a>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>Designed & built by Aaida Ahmed · 2026</p>
+</footer>
+
+</body>
+</html>
